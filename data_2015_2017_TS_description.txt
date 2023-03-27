@@ -1,0 +1,10 @@
+The file contains a matlab struct 'data_2015_2017_TS' with fields:
+
+h:  	 altitude bin center points in km
+KPbins:	 Kp index bin limits
+mltbins: MLT bin limits
+q:	 a 3x4x256x5 array of Joule heating rate profiles (W/m^3)
+sigmaP:	 a 3x4x256x5 array of Pedersen conductivity profiles (S/m)
+
+
+In q and sigmaP, the first index is Kp bin, the second index is MLT bin, the third index is altitude, and the fourth index is quantile. There are five quantiles (10%, 25%, 50%, 75%, and 90%) included. For example, the altitude profile of Joule heating median for Kp indeces between 2+ and 4 at 21-03 MLT is data_2015_2017_TS.q(2,2,:,3), and the corresponding lower and upper quartiles are data_2015_2017_TS.q(2,2,:,2) and data_2015_2017_TS.q(2,2,:,4).
