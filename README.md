@@ -6,10 +6,10 @@ This repository contains the software which executed the statistical calculation
 </em>
 
 ## Introduction
-The software reads TIE-GCM result files, separates the data into bins and calculates percentiles for each bin. The bins are defined by ranges of Magnetic Local Time, solar activity Kp index, latitude and altitude. The results are stored into netCDF files and can be plotted as altitude profiles in order to be compared with similar plots based on data from the Troms{\o} EISCAT Incoherent Scatter Radar. 
+The software reads TIE-GCM result files, separates the data into bins and calculates percentiles for each bin. The bins are defined by ranges of Magnetic Local Time, solar activity Kp index, latitude and altitude. The results are stored into netCDF files and can be plotted as altitude profiles in order to be compared with similar plots based on data from the Troms\o EISCAT Incoherent Scatter Radar. 
 
 ## Data
-The data for this project originate from two sources: a TIE-GCM 11 year simulation for the whole duration of the solar cycle 24 and several campaigns of the Troms{\o} EISCAT Incoherent Scatter Radar during the same period. The TIEGCM_DATA folder contains sample data files from the TIE-GCM model and the EISCAT_DATA folder contains the altitude profiles as caluclated based on the radar data. The most important physical variables which concern this project are Joule heating with and without the contribution of neutral winds and Pedersen conductivity. 
+The data for this project originate from two sources: a TIE-GCM 11 year simulation for the whole duration of the solar cycle 24 and several campaigns of the Troms\o EISCAT Incoherent Scatter Radar during the same period. The TIEGCM_DATA folder contains sample data files from the TIE-GCM model and the EISCAT_DATA folder contains the altitude profiles as caluclated based on the radar data. The most important physical variables which concern this project are Joule heating with and without the contribution of neutral winds and Pedersen conductivity. 
 
 ## Plot examples
 ![TIE-GCM Joule Heating Altitude Profiles](/images/TIEGCM_JH.png "TIE-GCM Joule Heating Altitude Profiles").
