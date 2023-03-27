@@ -1,7 +1,7 @@
 # TIEGCM_Statistics
-This repository contains the software which executed the statistical calculations for:
+This repository contains the software which executed the statistical calculations for:  
 <em>
-&emsp;A comparative assessment of the distribution of Joule heating in altitude as estimated in TIE-GCM and EISCAT over one solar cycle.
+&emsp;A comparative assessment of the distribution of Joule heating in altitude as estimated in TIE-GCM and EISCAT over one solar cycle.  
 &emsp;Baloukidis D., Sarris T., Tourgaidis S., Pirnaris P., Aikio A., Virtanen I., Buchert S., Papadakis K.
 </em>
 
@@ -13,3 +13,6 @@ The data for this project originate from two sources: a TIE-GCM 11 year simulati
 The TIEGCM_DATA folder contains sample data files from the TIE-GCM model and the EISCAT_DATA folder contains the altitude profiles as caluclated based on the radar data.
 
 ## Plot examples
+![TIE-GCM Joule Heating Altitude Profiles](/images/TIEGCM_JH.png "TIE-GCM Joule Heating Altitude Profiles").
+![EISCAT Joule Heating Altitude Profiles](/images/EISCAT_JH.png "EISCAT Joule Heating Altitude Profiles").
+![Pedersen Conductivity Medians Comparison](/images/PED_medians.png "Pedersen Conductivity Medians Comparison").
