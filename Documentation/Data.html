@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>TIEGCM_Statistics.Data API documentation</title>
+<meta name="description" content="This module defines the data structure used to hold the multi-dimensional result-data of the statistical calculations.
+The Area Of Interest is …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>TIEGCM_Statistics.Data</code></h1>
+</header>
+<section id="section-intro">
+<p>This module defines the data structure used to hold the multi-dimensional result-data of the statistical calculations.<br>
+The Area Of Interest is separated in bins with certain ranges for Magnetic Local Time, Kp index, Altitude and Latitude.<br>
+For each bin several percentiles of the values that fall in the bin are calculated.<br>
+The data structure can be saved into a file and loaded
+from it, as well.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This module defines the data structure used to hold the multi-dimensional result-data of the statistical calculations.  
+The Area Of Interest is separated in bins with certain ranges for Magnetic Local Time, Kp index, Altitude and Latitude.  
+For each bin several percentiles of the values that fall in the bin are calculated.  
+The data structure can be saved into a file and loaded  from it, as well.
+&#34;&#34;&#34;
+
+import numpy as np
+import pandas as pd
+import netCDF4
+from netCDF4 import Dataset 
+import datetime
+import glob
+import os
+import random
+
+
+MLT_min = 0 
+&#39;&#39;&#39; The lower limit of the Region Of Interest regarding the Magnetic Local Time (hours). &#39;&#39;&#39;
+MLT_max = 24
+&#39;&#39;&#39; The upper limit of the Region Of Interest regarding the Magnetic Local Time (hours). &#39;&#39;&#39;
+MLT_duration_of_a_bucket = 1
+&#39;&#39;&#39; The Region Of Interest will be split into sub-bins of this size regarding the Magnetic Local Time (hours). &#39;&#39;&#39;
+
+LAT_min = -90
+&#39;&#39;&#39; The lower limit of the Region Of Interest regarding the Geographic Latitude (degrees). &#39;&#39;&#39;
+LAT_max = +90
+&#39;&#39;&#39; The upper limit of the Region Of Interest regarding the Geographic Latitude (degrees). &#39;&#39;&#39;
+LAT_degrees_of_a_bucket = 2.5
+&#39;&#39;&#39; The Region Of Interest will be split into sub-bins of this size regarding the Geographic Latitude (degrees). &#39;&#39;&#39;
+
+ALT_min = 100
+&#39;&#39;&#39; The lower limit of the Region Of Interest regarding the Altitude (km). &#39;&#39;&#39;
+ALT_max = 500
+&#39;&#39;&#39; The upper limit of the Region Of Interest regarding the Altitude (km). &#39;&#39;&#39;
+ALT_distance_of_a_bucket   = 5
+&#39;&#39;&#39; The Region Of Interest will be split into sub-bins of this size regarding the Altitude (km).  &#39;&#39;&#39;
+
+num_of_KP_bins = 2
+&#39;&#39;&#39; The number of sub-bins into which the Region Of Interest will be split regarding the solar acticity Kp index. 1 for Kp bin 0-9, 2 for Kp bins 0-3, 3-9 and 3 for Kp bins 0-2, 2-4, 4-9.  &#39;&#39;&#39;
+
+TypeOfCalculation = &#34;&#34;
+&#39;&#39;&#39; Defines the physical variable on which the calculation will be applied. Valid values are: &#34;Ohmic&#34; for Joule Heating (Ohmic), &#34;JHminusWindHeat&#34; for Ohmic minus Neutral Wind heating, &#34;SIGMA_PED&#34; for Pedersen Conductivity, &#34;SIGMA_HAL&#34; for Hall Conductivity, &#34;EEX_si&#34; for Electric Field East, &#34;EEY_si&#34; for Electric Field North, &#34;Convection_heating&#34; for Convection heating, &#34;Wind_heating&#34; for Wind heating. The respective variables inside the TIE-GCM netCDF file must be named with identical names (except of JHminusWindHeat which is compound). &#39;&#39;&#39;
+
+DistributionNumOfSlots = 0
+&#39;&#39;&#39; Each sub-bin will be separated into this number of slots in order for a histogram to be calculated. &#39;&#39;&#39;
+
+ResultFilename = &#34;&#34;
+&#39;&#39;&#39; The netCDF filename into which the statistical calculation results will be stored. &#39;&#39;&#39;
+
+KPsequence     = [ 0, 3 ] 
+&#39;&#39;&#39; a list which stores the bin limits regarding the solar acticity Kp index (from 0 to 9). &#39;&#39;&#39;
+ALTsequence    = list( range( ALT_min,    ALT_max,    ALT_distance_of_a_bucket  ) )
+&#39;&#39;&#39; a list which stores the bin limits regarding the altitude (Km). &#39;&#39;&#39;
+LATsequence = list( np.arange( LAT_min,   LAT_max,    LAT_degrees_of_a_bucket) )
+&#39;&#39;&#39; a list which stores the bin limits regarding the geographic latitude (degrees). &#39;&#39;&#39;
+MLTsequence    = list( range( MLT_min,    MLT_max,    MLT_duration_of_a_bucket ) )
+&#39;&#39;&#39; a list which stores the bin limits regarding the Magnetic Local Time (hours). &#39;&#39;&#39;
+
+Progress = 0  
+&#39;&#39;&#39; An integer from 0 to 100, which trucks the calculation progress. It can be read from the GUI to display progress to the user. &#39;&#39;&#39;
+
+
+
+def setDataParams( _MLT_min, _MLT_max, _MLT_duration_of_a_bucket, _LAT_min, _LAT_max, _LAT_degrees_of_a_bucket, _ALT_min, _ALT_max, _ALT_distance_of_a_bucket, _num_of_KP_bins,_TypeOfCalculation, _DistributionNumOfSlots ):
+    &#39;&#39;&#39;
+    Initializes all Bin ranges, the variable which is going to be calculated, and the number of distribution slots.  
+    The values passed as parameters are stored into global variables in order to be used by all processes at a later stage.  
+    It also constructs the results filename automatically based on the parameters.  
+    This function has to be called before any calculation of statistics starts.  
+    Args:
+        _MLT_min (float): The lower limit of the Region Of Interest regarding the Magnetic Local Time (hours).
+        _MLT_max (float): The upper limit of the Region Of Interest regarding the Magnetic Local Time (hours).
+        _MLT_duration_of_a_bucket (float): The Region Of Interest will be split into sub-bins of this size regarding the Magnetic Local Time (hours).
+        _LAT_min (float): The lower limit of the Region Of Interest regarding the Geographic Latitude (degrees).
+        _LAT_max (float): The upper limit of the Region Of Interest regarding the Geographic Latitude (degrees).
+        _LAT_degrees_of_a_bucket (float): The Region Of Interest will be split into sub-bins of this size regarding the Geographic Latitude  (degrees).
+        _ALT_min (float): The lower limit of the Region Of Interest regarding the Altitude (km).
+        _ALT_max (float): The upper limit of the Region Of Interest regarding the Altitude (km).
+        _ALT_distance_of_a_bucket (float): The Region Of Interest will be split into sub-bins of this size regarding the Altitude (km).  
+        _num_of_KP_bins (int): The number of sub-bins into which the Region Of Interest will be split regarding the solar acticity Kp index. 1 for Kp bin 0-9, 2 for Kp bins 0-3, 3-9 and 3 for Kp bins 0-2, 2-4, 4-9.
+        _TypeOfCalculation (string): Defines the physical variable on which the calculation will be applied. Valid values are: &#34;Ohmic&#34; for Joule Heating (Ohmic), &#34;JHminusWindHeat&#34; for Ohmic minus Neutral Wind heating, &#34;SIGMA_PED&#34; for Pedersen Conductivity, &#34;SIGMA_HAL&#34; for Hall Conductivity, &#34;EEX_si&#34; for Electric Field East, &#34;EEY_si&#34; for Electric Field North, &#34;Convection_heating&#34; for Convection heating, &#34;Wind_heating&#34; for Wind heating. The respective variables inside the TIE-GCM netCDF file must be named with identical names (except of JHminusWindHeat which is compound).
+        _DistributionNumOfSlots (int): Each sub-bin will be separated into this number of slots in order for a histogram to be calculated. 
+    &#39;&#39;&#39;    
+    global MLT_min, MLT_max, MLT_duration_of_a_bucket, ALT_min, ALT_max, ALT_distance_of_a_bucket, LAT_min, LAT_max, LAT_degrees_of_a_bucket, num_of_KP_bins,  TypeOfCalculation, DistributionNumOfSlots, KPsequence, ALTsequence, LATsequence, MLTsequence, ResultFilename
+    ####
+    MLT_duration_of_a_bucket   = _MLT_duration_of_a_bucket
+    LAT_degrees_of_a_bucket    = _LAT_degrees_of_a_bucket
+    ALT_distance_of_a_bucket   = _ALT_distance_of_a_bucket
+    MLT_min = _MLT_min
+    MLT_max = _MLT_max
+    LAT_min = _LAT_min
+    LAT_max = _LAT_max
+    ALT_min = _ALT_min
+    ALT_max = _ALT_max
+    num_of_KP_bins = _num_of_KP_bins
+    MLTsequence    = list( np.arange( MLT_min,    MLT_max,    MLT_duration_of_a_bucket ) )
+    LATsequence    = list( np.arange( LAT_min, LAT_max, LAT_degrees_of_a_bucket) )
+    ALTsequence    = list( np.arange( ALT_min,    ALT_max,    ALT_distance_of_a_bucket  ) )
+    if num_of_KP_bins == 1:
+        KPsequence     = [ 0 ] 
+    elif num_of_KP_bins == 2:
+        KPsequence     = [ 0, 3 ] 
+    elif num_of_KP_bins == 3:    
+        KPsequence     = [ 0, 2, 4 ] 
+    #
+    TypeOfCalculation = _TypeOfCalculation
+    DistributionNumOfSlots = _DistributionNumOfSlots
+    # construct the results filename and check if exists so that you do not overwrite it
+    ResultFilename = &#34;results/&#34; + TypeOfCalculation + &#34;__&#34;
+    ResultFilename += &#34;MLT&#34; + &#34;_&#34; + str(MLT_min) + &#34;_&#34; + str(MLT_max) + &#34;_&#34; + str(MLT_duration_of_a_bucket) + &#34;_&#34;
+    ResultFilename += &#34;LAT&#34; + &#34;_&#34; + str(LAT_min) + &#34;_&#34; + str(LAT_max) + &#34;_&#34; + str(LAT_degrees_of_a_bucket) + &#34;_&#34;
+    ResultFilename += &#34;ALT&#34; + &#34;_&#34; + str(ALT_min) + &#34;_&#34; + str(ALT_max) + &#34;_&#34; + str(ALT_distance_of_a_bucket) + &#34;_&#34;
+    ResultFilename += &#34;Kp&#34; + str(num_of_KP_bins) + &#34;Bins&#34;
+    ResultFilename += &#34;.nc&#34;
+    ResultFilename = ResultFilename.replace(&#34;.0&#34;, &#34;&#34;)
+    
+    
+                    
+def init_ResultDataStructure():
+    &#39;&#39;&#39;
+    Returns:
+        A data structure (python dictionary) which will contain the results of the statistical calculation.  
+        It contains for each bin the summary of values inside the bin, their number, their percentiles and more.  
+        Inside this data structure the calculation results are stored or loaded from a file.  
+        The bins must have been defined earlier from setDataParams() function.
+    &#39;&#39;&#39;
+    Buckets = dict()
+    for aKP in KPsequence:
+        for anALT in ALTsequence:
+            for aLat in LATsequence:
+                for aMLT in MLTsequence:
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Vals&#34;)] = list()
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Weights&#34;)] = list() # each weight is associated with each value
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile10&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile25&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile50&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile75&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile90&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Variance&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Minimum&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Maximum&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)] = [0] * DistributionNumOfSlots
+                    
+    return Buckets
+
+
+
+
+def LocatePositionInBuckets( aKp, anALT, aLat, aMLT ):
+    &#39;&#39;&#39;
+    It decides into which bin the position given in the parameters should be placed.  
+    In case the position falls outside of all bins then some of the returned values will be null.  
+    The bins must have been defined earlier from setDataParams() function.
+    Args:
+        aKp (float):  The position&#39;s solar acticity Kp index. 
+        anALT (float): The position&#39;s Altitude (km).
+        aLat (float): The position&#39;s Geographic Latitude (degrees).
+        aMLT (float): The position&#39;s Magnetic Local Time (hours).
+    Returns: 4 values (kp_to_fall, alt_to_fall, lat_to_fall, mlt_to_fall), representing the lower limit of the bin inside which the position given in the parameters falls. If some value is null then the position falls outside all predefined bins.
+    &#39;&#39;&#39;
+    kp_to_fall = alt_to_fall = lat_to_fall = mlt_to_fall = None
+    # find correct Alt
+    for tmp in ALTsequence:
+        if anALT&gt;=tmp and anALT&lt;tmp+ALT_distance_of_a_bucket:
+            alt_to_fall=tmp
+            break
+    if alt_to_fall is None and anALT==ALTsequence[-1]+ALT_distance_of_a_bucket: alt_to_fall=ALTsequence[-1]
+    # find correct kp
+    if num_of_KP_bins == 1:
+        kp_to_fall = 0
+    elif num_of_KP_bins == 2:
+        if aKp &lt; 3: 
+            kp_to_fall = 0
+        else:
+            kp_to_fall = 3
+    elif num_of_KP_bins == 3:
+        if aKp &lt; 2: 
+            kp_to_fall = 0
+        elif aKp &lt; 4: 
+            kp_to_fall = 2
+        else:
+            kp_to_fall = 4
+    # find correct MLT
+    if MLTsequence[-1] &lt; 24:
+        for tmp in MLTsequence:
+            if aMLT&gt;=tmp and aMLT&lt;tmp+MLT_duration_of_a_bucket: 
+                mlt_to_fall=tmp
+                break
+        if mlt_to_fall is None and aMLT==MLTsequence[-1]+MLT_duration_of_a_bucket: mlt_to_fall=MLTsequence[-1] # for last position
+    else:
+        MLT_to_check = aMLT
+        if MLT_to_check &lt; MLTsequence[0]: MLT_to_check+=24
+        for tmp in MLTsequence:
+            if MLT_to_check&gt;=tmp and MLT_to_check&lt;tmp+MLT_duration_of_a_bucket: 
+                mlt_to_fall=tmp
+                break
+        if mlt_to_fall is None and MLT_to_check==MLTsequence[-1]+MLT_duration_of_a_bucket: mlt_to_fall=MLTsequence[-1] # for last position
+    # find correct Lat
+    for tmp in LATsequence:
+        if aLat&gt;=tmp and aLat&lt;tmp+LAT_degrees_of_a_bucket:
+            lat_to_fall=tmp
+            break
+    if lat_to_fall is None and aLat==LATsequence[-1]+LAT_degrees_of_a_bucket: lat_to_fall=LATsequence[-1]
+    #
+    return  kp_to_fall, alt_to_fall, lat_to_fall, mlt_to_fall
+
+
+
+
+def WriteResultsToCDF(ResultBuckets, ResultFilename, VariableName, Units):
+    &#39;&#39;&#39;
+    Args:
+        ResultBuckets (dictionary): The data structure which contains the statistical calculation results. See the function init_ResultDataStructure() for details.
+        ResultFilename (string): The netCDF filename into which the statistical calculation results will be stored.
+        VariableName (string): The physical variable on which the calculation has been applied. It will be stored as property of the netCDF file.
+        Units (string): The units of the physical variable on which the calculation has been applied. It will be stored as property of the netCDF file.
+    &#39;&#39;&#39;
+    resultsCDF = Dataset( ResultFilename, &#39;w&#39; )
+    # add attributes defining the results file - TODO: add more attributes
+    resultsCDF.DateOfCreation = datetime.datetime.now().strftime(&#34;%d-%m-%Y %H:%M:%S&#34;)
+    resultsCDF.VariableName = VariableName
+    resultsCDF.Units = Units
+    resultsCDF.TypeOfCalculation = TypeOfCalculation
+    # Create dimensions
+    resultsCDF.createDimension( &#34;dim_MLT&#34;, len(MLTsequence) )
+    resultsCDF.createDimension( &#34;dim_LAT&#34;, len(LATsequence) )
+    resultsCDF.createDimension( &#34;dim_KP&#34;, len(KPsequence) )
+    resultsCDF.createDimension( &#34;dim_ALT&#34;, len(ALTsequence) )
+    resultsCDF.createDimension( &#34;dim_distribution&#34;, DistributionNumOfSlots )
+    # Create variables
+    VAR_MLT = resultsCDF.createVariable( &#34;MLT&#34;, &#34;f4&#34;, &#34;dim_MLT&#34; )
+    VAR_MLT[:] = MLTsequence
+    VAR_LAT = resultsCDF.createVariable( &#34;LAT&#34;, &#34;f4&#34;, &#34;dim_LAT&#34; )
+    VAR_LAT[:] = LATsequence
+    VAR_KP = resultsCDF.createVariable( &#34;KP&#34;, &#34;f4&#34;, &#34;dim_KP&#34; )
+    VAR_KP[:] = KPsequence
+    VAR_ALT = resultsCDF.createVariable( &#34;ALT&#34;, &#34;f4&#34;, &#34;dim_ALT&#34; )
+    VAR_ALT[:] = ALTsequence
+    #
+    VAR_BinSums = resultsCDF.createVariable( &#34;BinSums&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;, &#39;dim_ALT&#39;, &#39;dim_LAT&#39;, &#39;dim_MLT&#39;) )
+    VAR_BinLens = resultsCDF.createVariable( &#34;BinLens&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;, &#39;dim_ALT&#39;, &#39;dim_LAT&#39;, &#39;dim_MLT&#39;) )
+    VAR_Percentile10=resultsCDF.createVariable( &#34;Percentile10&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile25=resultsCDF.createVariable( &#34;Percentile25&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile50=resultsCDF.createVariable( &#34;Percentile50&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile75=resultsCDF.createVariable( &#34;Percentile75&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile90=resultsCDF.createVariable( &#34;Percentile90&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Variance=resultsCDF.createVariable( &#34;Variance&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Minimum=resultsCDF.createVariable( &#34;Minimum&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Maximum=resultsCDF.createVariable( &#34;Maximum&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    if DistributionNumOfSlots &gt; 0:
+        VAR_Distribution=resultsCDF.createVariable( &#34;Distribution&#34;, &#34;i4&#34;,(&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;,&#39;dim_distribution&#39;))
+    for aKP in KPsequence:
+        for anALT in ALTsequence:
+            for aLat in LATsequence:
+                for aMLT in MLTsequence:
+                    vector = (KPsequence.index(aKP), ALTsequence.index(anALT), LATsequence.index(aLat), MLTsequence.index(aMLT))
+                    VAR_BinSums[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)]
+                    VAR_BinLens[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)]
+                    VAR_Percentile10[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile10&#34;)]
+                    VAR_Percentile25[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile25&#34;)]
+                    VAR_Percentile50[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile50&#34;)]
+                    VAR_Percentile75[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile75&#34;)]
+                    VAR_Percentile90[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile90&#34;)]
+                    VAR_Variance[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Variance&#34;)]
+                    VAR_Minimum[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Minimum&#34;)]
+                    VAR_Maximum[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Maximum&#34;)]
+                    if DistributionNumOfSlots &gt; 0:
+                        for i in range(0, DistributionNumOfSlots):
+                            VAR_Distribution[vector+(i,)] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)][i]
+                    
+    resultsCDF.close()
+    
+    
+
+    
+def LoadResultsCDF( _ResultFilename ):
+    &#39;&#39;&#39;
+    Args:
+        _ResultFilename (string): The netCDF filename from which the statistical calculation results will be loaded.
+    Returns:
+        ResultBuckets (dictionary): the data structure which contains all the calcultion result data. See the function  init_ResultDataStructure() for details.  
+        BinSums (4D list): The summary of values of each bin.  
+        BinLens (4D list): The number of values of each bin.  
+        VariableName (string): The physical variable on which the calculation has been applied.  
+        Units (string): The units of the physical variable on which the calculation has been applied.
+    &#39;&#39;&#39;
+    global MLT_min, MLT_max, MLT_duration_of_a_bucket
+    global ALT_min, ALT_max, ALT_distance_of_a_bucket 
+    global LAT_min, LAT_max, LAT_degrees_of_a_bucket
+    global num_of_KP_bins, ResultFilename, TypeOfCalculation
+    global KPsequence, ALTsequence, LATsequence, MLTsequence
+    
+    ResultFilename = _ResultFilename
+    
+    # open result file
+    try:
+        CDFroot = Dataset( ResultFilename, &#39;r&#39; )
+    except:
+        print ( &#34; !!!!!!!! WRONG FORMAT:&#34;, ResultFilename )
+
+    # read atributes
+    DateOfCreation = CDFroot.DateOfCreation
+    VariableName = CDFroot.VariableName
+    Units = CDFroot.Units
+    TypeOfCalculation = CDFroot.TypeOfCalculation
+    
+    # read results
+    MLTs    = CDFroot.variables[&#39;MLT&#39;][:]         
+    LATs    = CDFroot.variables[&#39;LAT&#39;][:] 
+    ALTs    = CDFroot.variables[&#39;ALT&#39;][:]
+    KPs     = CDFroot.variables[&#39;KP&#39;][:]        
+    BinSums = CDFroot.variables[&#39;BinSums&#39;][:, :, :, :] 
+    BinLens = CDFroot.variables[&#39;BinLens&#39;][:, :, :, :]
+    P10 = CDFroot.variables[&#39;Percentile10&#39;][:, :, :, :]
+    P25 = CDFroot.variables[&#39;Percentile25&#39;][:, :, :, :]
+    P50 = CDFroot.variables[&#39;Percentile50&#39;][:, :, :, :]
+    P75 = CDFroot.variables[&#39;Percentile75&#39;][:, :, :, :]
+    P90 = CDFroot.variables[&#39;Percentile90&#39;][:, :, :, :]
+    try:
+        Variances = CDFroot.variables[&#39;Variance&#39;][:, :, :, :]
+        Minimums = CDFroot.variables[&#39;Minimum&#39;][:, :, :, :]
+        Maximums = CDFroot.variables[&#39;Maximum&#39;][:, :, :, :]
+        Distribution = CDFroot.variables[&#39;Distribution&#39;][:, :, :, :, :]    
+    except:
+        pass
+    
+    # apply loaded info to data structures
+    MLT_duration_of_a_bucket = MLTs[1] - MLTs[0]
+    MLT_min = MLTs[0]
+    MLT_max = MLTs[-1] + MLT_duration_of_a_bucket
+    #
+    if len(LATs)==1:
+        LAT_degrees_of_a_bucket = 180
+    else:
+        LAT_degrees_of_a_bucket = LATs[1] - LATs[0]
+    LAT_min = LATs[0]
+    LAT_max = LATs[-1] + LAT_degrees_of_a_bucket
+    #
+    if len(ALTs)==1:
+        ALT_distance_of_a_bucket = 5
+    else:
+        ALT_distance_of_a_bucket = ALTs[1] - ALTs[0]
+    ALT_min = ALTs[0]
+    ALT_max = ALTs[-1] + ALT_distance_of_a_bucket
+    #
+    num_of_KP_bins = len(KPs)
+
+    # reconstruct sequences
+    MLTsequence  = list( np.arange( MLT_min,  MLT_max,  MLT_duration_of_a_bucket ) )
+    LATsequence = list( np.arange( LAT_min, LAT_max, LAT_degrees_of_a_bucket) )
+    ALTsequence  = list( np.arange( ALT_min,  ALT_max,  ALT_distance_of_a_bucket  ) )
+    
+    if num_of_KP_bins == 1:
+        KPsequence     = [ 0 ] 
+    elif num_of_KP_bins == 2:
+        KPsequence     = [ 0, 3 ] 
+    elif num_of_KP_bins == 3:    
+        KPsequence     = [ 0, 2, 4 ] 
+        
+    # assign data to the buckets
+    ResultBuckets = init_ResultDataStructure()
+    for idx_kp in range(0, len(BinSums)):
+        for idx_alt in range(0, len(BinSums[0])):
+            for idx_mlat in range(0, len(BinSums[0,0])):
+                for idx_mlt in range(0, len(BinSums[0,0,0])):
+                    aKP     = KPs[idx_kp]
+                    anALT   = ALTs[idx_alt]
+                    aLat = LATs[idx_mlat]
+                    aMLT    = MLTs[idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)] = BinSums[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)] = BinLens[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile10&#34;)] = P10[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile25&#34;)] = P25[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile50&#34;)] = P50[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile75&#34;)] = P75[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile90&#34;)] = P90[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    try:
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Variance&#34;)] = Variances[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Minimum&#34;)] = Minimums[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Maximum&#34;)] = Maximums[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                        
+                        # for distribution
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)] = [0] * len(Distribution[0,0,0,0,:])
+                        for i in range(0, len(Distribution[0,0,0,0,:])):
+                            ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)][i] = Distribution[idx_kp, idx_alt, idx_mlat, idx_mlt, i]
+                    except:
+                        pass
+                    
+    # be verbose
+    print( &#34;Opened &#34;, ResultFilename, &#34;:&#34;  )
+    print(&#34;   DateOfCreation:&#34;, DateOfCreation, &#34; TypeOfCalculation:&#34;, TypeOfCalculation )
+    print(&#34;   Variable:&#34;, VariableName, &#34; Units:&#34;, Units, &#34; filled bins:&#34;, np.count_nonzero(BinSums), &#34;/&#34;, len(BinSums)*len(BinSums[0])*len(BinSums[0][0])*len(BinSums[0][0][0]), &#34; Num of Kp bins:&#34;, num_of_KP_bins)
+    print(&#34;   MLT:&#34;, MLT_min, &#34;-&#34;, MLT_max, &#34;step&#34;, MLT_duration_of_a_bucket, &#34;  Alt.:&#34;, ALT_min, &#34;-&#34;, ALT_max, &#34;step&#34;, ALT_distance_of_a_bucket, &#34;  Mag.Lat.:&#34;, LAT_min, &#34;-&#34;, LAT_max, &#34;step&#34;, LAT_degrees_of_a_bucket)
+    print(&#34;\n&#34;)
+    
+    # clean up
+    CDFroot.close()
+    return ResultBuckets, BinSums, BinLens, VariableName, Units
+    
+
+    
+
+def mergeResultCDFs( CDF_filenames, mergedFilename ):
+    &#39;&#39;&#39;
+    Merges several netCDF result files into a single one.
+    Args:
+        CDF_filenames (string): string with wildcards, describing the files to be merged
+        mergedFilename (string): string with the filename of the final merged file
+    &#39;&#39;&#39;
+    AllCDFfilenames = sorted( glob.glob( CDF_filenames ) )
+    MergedBuckets = init_ResultDataStructure()
+    for CDF_filename in AllCDFfilenames:
+        # read a file
+        ResultBuckets, BinSums, BinLens, VariableName, Units = LoadResultsCDF( CDF_filename )
+        # merge it 
+        for aKP in KPsequence:
+            for anALT in ALTsequence:
+                for aLat in LATsequence:
+                    for aMLT in MLTsequence:
+                        MergedBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)] += ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)]
+                        MergedBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)] += ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)]
+        # delete file
+        os.remove( CDF_filename )
+    # save merged data
+    WriteResultsToCDF(MergedBuckets, mergedFilename, VariableName, Units)
+        
+        </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="TIEGCM_Statistics.Data.ALT_distance_of_a_bucket"><code class="name">var <span class="ident">ALT_distance_of_a_bucket</span></code></dt>
+<dd>
+<div class="desc"><p>The Region Of Interest will be split into sub-bins of this size regarding the Altitude (km).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.ALT_max"><code class="name">var <span class="ident">ALT_max</span></code></dt>
+<dd>
+<div class="desc"><p>The upper limit of the Region Of Interest regarding the Altitude (km).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.ALT_min"><code class="name">var <span class="ident">ALT_min</span></code></dt>
+<dd>
+<div class="desc"><p>The lower limit of the Region Of Interest regarding the Altitude (km).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.ALTsequence"><code class="name">var <span class="ident">ALTsequence</span></code></dt>
+<dd>
+<div class="desc"><p>a list which stores the bin limits regarding the altitude (Km).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.DistributionNumOfSlots"><code class="name">var <span class="ident">DistributionNumOfSlots</span></code></dt>
+<dd>
+<div class="desc"><p>Each sub-bin will be separated into this number of slots in order for a histogram to be calculated.</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.KPsequence"><code class="name">var <span class="ident">KPsequence</span></code></dt>
+<dd>
+<div class="desc"><p>a list which stores the bin limits regarding the solar acticity Kp index (from 0 to 9).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.LAT_degrees_of_a_bucket"><code class="name">var <span class="ident">LAT_degrees_of_a_bucket</span></code></dt>
+<dd>
+<div class="desc"><p>The Region Of Interest will be split into sub-bins of this size regarding the Geographic Latitude (degrees).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.LAT_max"><code class="name">var <span class="ident">LAT_max</span></code></dt>
+<dd>
+<div class="desc"><p>The upper limit of the Region Of Interest regarding the Geographic Latitude (degrees).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.LAT_min"><code class="name">var <span class="ident">LAT_min</span></code></dt>
+<dd>
+<div class="desc"><p>The lower limit of the Region Of Interest regarding the Geographic Latitude (degrees).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.LATsequence"><code class="name">var <span class="ident">LATsequence</span></code></dt>
+<dd>
+<div class="desc"><p>a list which stores the bin limits regarding the geographic latitude (degrees).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.MLT_duration_of_a_bucket"><code class="name">var <span class="ident">MLT_duration_of_a_bucket</span></code></dt>
+<dd>
+<div class="desc"><p>The Region Of Interest will be split into sub-bins of this size regarding the Magnetic Local Time (hours).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.MLT_max"><code class="name">var <span class="ident">MLT_max</span></code></dt>
+<dd>
+<div class="desc"><p>The upper limit of the Region Of Interest regarding the Magnetic Local Time (hours).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.MLT_min"><code class="name">var <span class="ident">MLT_min</span></code></dt>
+<dd>
+<div class="desc"><p>The lower limit of the Region Of Interest regarding the Magnetic Local Time (hours).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.MLTsequence"><code class="name">var <span class="ident">MLTsequence</span></code></dt>
+<dd>
+<div class="desc"><p>a list which stores the bin limits regarding the Magnetic Local Time (hours).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.Progress"><code class="name">var <span class="ident">Progress</span></code></dt>
+<dd>
+<div class="desc"><p>An integer from 0 to 100, which trucks the calculation progress. It can be read from the GUI to display progress to the user.</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.ResultFilename"><code class="name">var <span class="ident">ResultFilename</span></code></dt>
+<dd>
+<div class="desc"><p>The netCDF filename into which the statistical calculation results will be stored.</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.TypeOfCalculation"><code class="name">var <span class="ident">TypeOfCalculation</span></code></dt>
+<dd>
+<div class="desc"><p>Defines the physical variable on which the calculation will be applied. Valid values are: "Ohmic" for Joule Heating (Ohmic), "JHminusWindHeat" for Ohmic minus Neutral Wind heating, "SIGMA_PED" for Pedersen Conductivity, "SIGMA_HAL" for Hall Conductivity, "EEX_si" for Electric Field East, "EEY_si" for Electric Field North, "Convection_heating" for Convection heating, "Wind_heating" for Wind heating. The respective variables inside the TIE-GCM netCDF file must be named with identical names (except of JHminusWindHeat which is compound).</p></div>
+</dd>
+<dt id="TIEGCM_Statistics.Data.num_of_KP_bins"><code class="name">var <span class="ident">num_of_KP_bins</span></code></dt>
+<dd>
+<div class="desc"><p>The number of sub-bins into which the Region Of Interest will be split regarding the solar acticity Kp index. 1 for Kp bin 0-9, 2 for Kp bins 0-3, 3-9 and 3 for Kp bins 0-2, 2-4, 4-9.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="TIEGCM_Statistics.Data.LoadResultsCDF"><code class="name flex">
+<span>def <span class="ident">LoadResultsCDF</span></span>(<span>_ResultFilename)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>_ResultFilename</code></strong> :&ensp;<code>string</code></dt>
+<dd>The netCDF filename from which the statistical calculation results will be loaded.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>ResultBuckets (dictionary): the data structure which contains all the calcultion result data. See the function
+init_ResultDataStructure() for details.<br>
+BinSums (4D list): The summary of values of each bin.<br>
+BinLens (4D list): The number of values of each bin.<br>
+VariableName (string): The physical variable on which the calculation has been applied.<br>
+Units (string): The units of the physical variable on which the calculation has been applied.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def LoadResultsCDF( _ResultFilename ):
+    &#39;&#39;&#39;
+    Args:
+        _ResultFilename (string): The netCDF filename from which the statistical calculation results will be loaded.
+    Returns:
+        ResultBuckets (dictionary): the data structure which contains all the calcultion result data. See the function  init_ResultDataStructure() for details.  
+        BinSums (4D list): The summary of values of each bin.  
+        BinLens (4D list): The number of values of each bin.  
+        VariableName (string): The physical variable on which the calculation has been applied.  
+        Units (string): The units of the physical variable on which the calculation has been applied.
+    &#39;&#39;&#39;
+    global MLT_min, MLT_max, MLT_duration_of_a_bucket
+    global ALT_min, ALT_max, ALT_distance_of_a_bucket 
+    global LAT_min, LAT_max, LAT_degrees_of_a_bucket
+    global num_of_KP_bins, ResultFilename, TypeOfCalculation
+    global KPsequence, ALTsequence, LATsequence, MLTsequence
+    
+    ResultFilename = _ResultFilename
+    
+    # open result file
+    try:
+        CDFroot = Dataset( ResultFilename, &#39;r&#39; )
+    except:
+        print ( &#34; !!!!!!!! WRONG FORMAT:&#34;, ResultFilename )
+
+    # read atributes
+    DateOfCreation = CDFroot.DateOfCreation
+    VariableName = CDFroot.VariableName
+    Units = CDFroot.Units
+    TypeOfCalculation = CDFroot.TypeOfCalculation
+    
+    # read results
+    MLTs    = CDFroot.variables[&#39;MLT&#39;][:]         
+    LATs    = CDFroot.variables[&#39;LAT&#39;][:] 
+    ALTs    = CDFroot.variables[&#39;ALT&#39;][:]
+    KPs     = CDFroot.variables[&#39;KP&#39;][:]        
+    BinSums = CDFroot.variables[&#39;BinSums&#39;][:, :, :, :] 
+    BinLens = CDFroot.variables[&#39;BinLens&#39;][:, :, :, :]
+    P10 = CDFroot.variables[&#39;Percentile10&#39;][:, :, :, :]
+    P25 = CDFroot.variables[&#39;Percentile25&#39;][:, :, :, :]
+    P50 = CDFroot.variables[&#39;Percentile50&#39;][:, :, :, :]
+    P75 = CDFroot.variables[&#39;Percentile75&#39;][:, :, :, :]
+    P90 = CDFroot.variables[&#39;Percentile90&#39;][:, :, :, :]
+    try:
+        Variances = CDFroot.variables[&#39;Variance&#39;][:, :, :, :]
+        Minimums = CDFroot.variables[&#39;Minimum&#39;][:, :, :, :]
+        Maximums = CDFroot.variables[&#39;Maximum&#39;][:, :, :, :]
+        Distribution = CDFroot.variables[&#39;Distribution&#39;][:, :, :, :, :]    
+    except:
+        pass
+    
+    # apply loaded info to data structures
+    MLT_duration_of_a_bucket = MLTs[1] - MLTs[0]
+    MLT_min = MLTs[0]
+    MLT_max = MLTs[-1] + MLT_duration_of_a_bucket
+    #
+    if len(LATs)==1:
+        LAT_degrees_of_a_bucket = 180
+    else:
+        LAT_degrees_of_a_bucket = LATs[1] - LATs[0]
+    LAT_min = LATs[0]
+    LAT_max = LATs[-1] + LAT_degrees_of_a_bucket
+    #
+    if len(ALTs)==1:
+        ALT_distance_of_a_bucket = 5
+    else:
+        ALT_distance_of_a_bucket = ALTs[1] - ALTs[0]
+    ALT_min = ALTs[0]
+    ALT_max = ALTs[-1] + ALT_distance_of_a_bucket
+    #
+    num_of_KP_bins = len(KPs)
+
+    # reconstruct sequences
+    MLTsequence  = list( np.arange( MLT_min,  MLT_max,  MLT_duration_of_a_bucket ) )
+    LATsequence = list( np.arange( LAT_min, LAT_max, LAT_degrees_of_a_bucket) )
+    ALTsequence  = list( np.arange( ALT_min,  ALT_max,  ALT_distance_of_a_bucket  ) )
+    
+    if num_of_KP_bins == 1:
+        KPsequence     = [ 0 ] 
+    elif num_of_KP_bins == 2:
+        KPsequence     = [ 0, 3 ] 
+    elif num_of_KP_bins == 3:    
+        KPsequence     = [ 0, 2, 4 ] 
+        
+    # assign data to the buckets
+    ResultBuckets = init_ResultDataStructure()
+    for idx_kp in range(0, len(BinSums)):
+        for idx_alt in range(0, len(BinSums[0])):
+            for idx_mlat in range(0, len(BinSums[0,0])):
+                for idx_mlt in range(0, len(BinSums[0,0,0])):
+                    aKP     = KPs[idx_kp]
+                    anALT   = ALTs[idx_alt]
+                    aLat = LATs[idx_mlat]
+                    aMLT    = MLTs[idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)] = BinSums[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)] = BinLens[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile10&#34;)] = P10[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile25&#34;)] = P25[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile50&#34;)] = P50[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile75&#34;)] = P75[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile90&#34;)] = P90[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                    try:
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Variance&#34;)] = Variances[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Minimum&#34;)] = Minimums[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Maximum&#34;)] = Maximums[idx_kp, idx_alt, idx_mlat, idx_mlt]
+                        
+                        # for distribution
+                        ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)] = [0] * len(Distribution[0,0,0,0,:])
+                        for i in range(0, len(Distribution[0,0,0,0,:])):
+                            ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)][i] = Distribution[idx_kp, idx_alt, idx_mlat, idx_mlt, i]
+                    except:
+                        pass
+                    
+    # be verbose
+    print( &#34;Opened &#34;, ResultFilename, &#34;:&#34;  )
+    print(&#34;   DateOfCreation:&#34;, DateOfCreation, &#34; TypeOfCalculation:&#34;, TypeOfCalculation )
+    print(&#34;   Variable:&#34;, VariableName, &#34; Units:&#34;, Units, &#34; filled bins:&#34;, np.count_nonzero(BinSums), &#34;/&#34;, len(BinSums)*len(BinSums[0])*len(BinSums[0][0])*len(BinSums[0][0][0]), &#34; Num of Kp bins:&#34;, num_of_KP_bins)
+    print(&#34;   MLT:&#34;, MLT_min, &#34;-&#34;, MLT_max, &#34;step&#34;, MLT_duration_of_a_bucket, &#34;  Alt.:&#34;, ALT_min, &#34;-&#34;, ALT_max, &#34;step&#34;, ALT_distance_of_a_bucket, &#34;  Mag.Lat.:&#34;, LAT_min, &#34;-&#34;, LAT_max, &#34;step&#34;, LAT_degrees_of_a_bucket)
+    print(&#34;\n&#34;)
+    
+    # clean up
+    CDFroot.close()
+    return ResultBuckets, BinSums, BinLens, VariableName, Units</code></pre>
+</details>
+</dd>
+<dt id="TIEGCM_Statistics.Data.LocatePositionInBuckets"><code class="name flex">
+<span>def <span class="ident">LocatePositionInBuckets</span></span>(<span>aKp, anALT, aLat, aMLT)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>It decides into which bin the position given in the parameters should be placed.<br>
+In case the position falls outside of all bins then some of the returned values will be null.<br>
+The bins must have been defined earlier from setDataParams() function.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>aKp</code></strong> :&ensp;<code>float</code></dt>
+<dd>The position's solar acticity Kp index. </dd>
+<dt><strong><code>anALT</code></strong> :&ensp;<code>float</code></dt>
+<dd>The position's Altitude (km).</dd>
+<dt><strong><code>aLat</code></strong> :&ensp;<code>float</code></dt>
+<dd>The position's Geographic Latitude (degrees).</dd>
+<dt><strong><code>aMLT</code></strong> :&ensp;<code>float</code></dt>
+<dd>The position's Magnetic Local Time (hours).</dd>
+</dl>
+<p>Returns: 4 values (kp_to_fall, alt_to_fall, lat_to_fall, mlt_to_fall), representing the lower limit of the bin inside which the position given in the parameters falls. If some value is null then the position falls outside all predefined bins.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def LocatePositionInBuckets( aKp, anALT, aLat, aMLT ):
+    &#39;&#39;&#39;
+    It decides into which bin the position given in the parameters should be placed.  
+    In case the position falls outside of all bins then some of the returned values will be null.  
+    The bins must have been defined earlier from setDataParams() function.
+    Args:
+        aKp (float):  The position&#39;s solar acticity Kp index. 
+        anALT (float): The position&#39;s Altitude (km).
+        aLat (float): The position&#39;s Geographic Latitude (degrees).
+        aMLT (float): The position&#39;s Magnetic Local Time (hours).
+    Returns: 4 values (kp_to_fall, alt_to_fall, lat_to_fall, mlt_to_fall), representing the lower limit of the bin inside which the position given in the parameters falls. If some value is null then the position falls outside all predefined bins.
+    &#39;&#39;&#39;
+    kp_to_fall = alt_to_fall = lat_to_fall = mlt_to_fall = None
+    # find correct Alt
+    for tmp in ALTsequence:
+        if anALT&gt;=tmp and anALT&lt;tmp+ALT_distance_of_a_bucket:
+            alt_to_fall=tmp
+            break
+    if alt_to_fall is None and anALT==ALTsequence[-1]+ALT_distance_of_a_bucket: alt_to_fall=ALTsequence[-1]
+    # find correct kp
+    if num_of_KP_bins == 1:
+        kp_to_fall = 0
+    elif num_of_KP_bins == 2:
+        if aKp &lt; 3: 
+            kp_to_fall = 0
+        else:
+            kp_to_fall = 3
+    elif num_of_KP_bins == 3:
+        if aKp &lt; 2: 
+            kp_to_fall = 0
+        elif aKp &lt; 4: 
+            kp_to_fall = 2
+        else:
+            kp_to_fall = 4
+    # find correct MLT
+    if MLTsequence[-1] &lt; 24:
+        for tmp in MLTsequence:
+            if aMLT&gt;=tmp and aMLT&lt;tmp+MLT_duration_of_a_bucket: 
+                mlt_to_fall=tmp
+                break
+        if mlt_to_fall is None and aMLT==MLTsequence[-1]+MLT_duration_of_a_bucket: mlt_to_fall=MLTsequence[-1] # for last position
+    else:
+        MLT_to_check = aMLT
+        if MLT_to_check &lt; MLTsequence[0]: MLT_to_check+=24
+        for tmp in MLTsequence:
+            if MLT_to_check&gt;=tmp and MLT_to_check&lt;tmp+MLT_duration_of_a_bucket: 
+                mlt_to_fall=tmp
+                break
+        if mlt_to_fall is None and MLT_to_check==MLTsequence[-1]+MLT_duration_of_a_bucket: mlt_to_fall=MLTsequence[-1] # for last position
+    # find correct Lat
+    for tmp in LATsequence:
+        if aLat&gt;=tmp and aLat&lt;tmp+LAT_degrees_of_a_bucket:
+            lat_to_fall=tmp
+            break
+    if lat_to_fall is None and aLat==LATsequence[-1]+LAT_degrees_of_a_bucket: lat_to_fall=LATsequence[-1]
+    #
+    return  kp_to_fall, alt_to_fall, lat_to_fall, mlt_to_fall</code></pre>
+</details>
+</dd>
+<dt id="TIEGCM_Statistics.Data.WriteResultsToCDF"><code class="name flex">
+<span>def <span class="ident">WriteResultsToCDF</span></span>(<span>ResultBuckets, ResultFilename, VariableName, Units)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ResultBuckets</code></strong> :&ensp;<code>dictionary</code></dt>
+<dd>The data structure which contains the statistical calculation results. See the function init_ResultDataStructure() for details.</dd>
+<dt><strong><code>ResultFilename</code></strong> :&ensp;<code>string</code></dt>
+<dd>The netCDF filename into which the statistical calculation results will be stored.</dd>
+<dt><strong><code>VariableName</code></strong> :&ensp;<code>string</code></dt>
+<dd>The physical variable on which the calculation has been applied. It will be stored as property of the netCDF file.</dd>
+<dt><strong><code>Units</code></strong> :&ensp;<code>string</code></dt>
+<dd>The units of the physical variable on which the calculation has been applied. It will be stored as property of the netCDF file.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def WriteResultsToCDF(ResultBuckets, ResultFilename, VariableName, Units):
+    &#39;&#39;&#39;
+    Args:
+        ResultBuckets (dictionary): The data structure which contains the statistical calculation results. See the function init_ResultDataStructure() for details.
+        ResultFilename (string): The netCDF filename into which the statistical calculation results will be stored.
+        VariableName (string): The physical variable on which the calculation has been applied. It will be stored as property of the netCDF file.
+        Units (string): The units of the physical variable on which the calculation has been applied. It will be stored as property of the netCDF file.
+    &#39;&#39;&#39;
+    resultsCDF = Dataset( ResultFilename, &#39;w&#39; )
+    # add attributes defining the results file - TODO: add more attributes
+    resultsCDF.DateOfCreation = datetime.datetime.now().strftime(&#34;%d-%m-%Y %H:%M:%S&#34;)
+    resultsCDF.VariableName = VariableName
+    resultsCDF.Units = Units
+    resultsCDF.TypeOfCalculation = TypeOfCalculation
+    # Create dimensions
+    resultsCDF.createDimension( &#34;dim_MLT&#34;, len(MLTsequence) )
+    resultsCDF.createDimension( &#34;dim_LAT&#34;, len(LATsequence) )
+    resultsCDF.createDimension( &#34;dim_KP&#34;, len(KPsequence) )
+    resultsCDF.createDimension( &#34;dim_ALT&#34;, len(ALTsequence) )
+    resultsCDF.createDimension( &#34;dim_distribution&#34;, DistributionNumOfSlots )
+    # Create variables
+    VAR_MLT = resultsCDF.createVariable( &#34;MLT&#34;, &#34;f4&#34;, &#34;dim_MLT&#34; )
+    VAR_MLT[:] = MLTsequence
+    VAR_LAT = resultsCDF.createVariable( &#34;LAT&#34;, &#34;f4&#34;, &#34;dim_LAT&#34; )
+    VAR_LAT[:] = LATsequence
+    VAR_KP = resultsCDF.createVariable( &#34;KP&#34;, &#34;f4&#34;, &#34;dim_KP&#34; )
+    VAR_KP[:] = KPsequence
+    VAR_ALT = resultsCDF.createVariable( &#34;ALT&#34;, &#34;f4&#34;, &#34;dim_ALT&#34; )
+    VAR_ALT[:] = ALTsequence
+    #
+    VAR_BinSums = resultsCDF.createVariable( &#34;BinSums&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;, &#39;dim_ALT&#39;, &#39;dim_LAT&#39;, &#39;dim_MLT&#39;) )
+    VAR_BinLens = resultsCDF.createVariable( &#34;BinLens&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;, &#39;dim_ALT&#39;, &#39;dim_LAT&#39;, &#39;dim_MLT&#39;) )
+    VAR_Percentile10=resultsCDF.createVariable( &#34;Percentile10&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile25=resultsCDF.createVariable( &#34;Percentile25&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile50=resultsCDF.createVariable( &#34;Percentile50&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile75=resultsCDF.createVariable( &#34;Percentile75&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Percentile90=resultsCDF.createVariable( &#34;Percentile90&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Variance=resultsCDF.createVariable( &#34;Variance&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Minimum=resultsCDF.createVariable( &#34;Minimum&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    VAR_Maximum=resultsCDF.createVariable( &#34;Maximum&#34;, &#34;f4&#34;, (&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;))
+    if DistributionNumOfSlots &gt; 0:
+        VAR_Distribution=resultsCDF.createVariable( &#34;Distribution&#34;, &#34;i4&#34;,(&#39;dim_KP&#39;,&#39;dim_ALT&#39;,&#39;dim_LAT&#39;,&#39;dim_MLT&#39;,&#39;dim_distribution&#39;))
+    for aKP in KPsequence:
+        for anALT in ALTsequence:
+            for aLat in LATsequence:
+                for aMLT in MLTsequence:
+                    vector = (KPsequence.index(aKP), ALTsequence.index(anALT), LATsequence.index(aLat), MLTsequence.index(aMLT))
+                    VAR_BinSums[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)]
+                    VAR_BinLens[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)]
+                    VAR_Percentile10[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile10&#34;)]
+                    VAR_Percentile25[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile25&#34;)]
+                    VAR_Percentile50[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile50&#34;)]
+                    VAR_Percentile75[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile75&#34;)]
+                    VAR_Percentile90[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Percentile90&#34;)]
+                    VAR_Variance[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Variance&#34;)]
+                    VAR_Minimum[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Minimum&#34;)]
+                    VAR_Maximum[vector] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Maximum&#34;)]
+                    if DistributionNumOfSlots &gt; 0:
+                        for i in range(0, DistributionNumOfSlots):
+                            VAR_Distribution[vector+(i,)] = ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)][i]
+                    
+    resultsCDF.close()</code></pre>
+</details>
+</dd>
+<dt id="TIEGCM_Statistics.Data.init_ResultDataStructure"><code class="name flex">
+<span>def <span class="ident">init_ResultDataStructure</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<p>A data structure (python dictionary) which will contain the results of the statistical calculation.<br>
+It contains for each bin the summary of values inside the bin, their number, their percentiles and more.<br>
+Inside this data structure the calculation results are stored or loaded from a file.<br>
+The bins must have been defined earlier from setDataParams() function.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def init_ResultDataStructure():
+    &#39;&#39;&#39;
+    Returns:
+        A data structure (python dictionary) which will contain the results of the statistical calculation.  
+        It contains for each bin the summary of values inside the bin, their number, their percentiles and more.  
+        Inside this data structure the calculation results are stored or loaded from a file.  
+        The bins must have been defined earlier from setDataParams() function.
+    &#39;&#39;&#39;
+    Buckets = dict()
+    for aKP in KPsequence:
+        for anALT in ALTsequence:
+            for aLat in LATsequence:
+                for aMLT in MLTsequence:
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Vals&#34;)] = list()
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Weights&#34;)] = list() # each weight is associated with each value
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile10&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile25&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile50&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile75&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Percentile90&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Variance&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Minimum&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Maximum&#34;)] = 0
+                    Buckets[(aKP, anALT, aLat, aMLT, &#34;Distribution&#34;)] = [0] * DistributionNumOfSlots
+                    
+    return Buckets</code></pre>
+</details>
+</dd>
+<dt id="TIEGCM_Statistics.Data.mergeResultCDFs"><code class="name flex">
+<span>def <span class="ident">mergeResultCDFs</span></span>(<span>CDF_filenames, mergedFilename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Merges several netCDF result files into a single one.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>CDF_filenames</code></strong> :&ensp;<code>string</code></dt>
+<dd>string with wildcards, describing the files to be merged</dd>
+<dt><strong><code>mergedFilename</code></strong> :&ensp;<code>string</code></dt>
+<dd>string with the filename of the final merged file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mergeResultCDFs( CDF_filenames, mergedFilename ):
+    &#39;&#39;&#39;
+    Merges several netCDF result files into a single one.
+    Args:
+        CDF_filenames (string): string with wildcards, describing the files to be merged
+        mergedFilename (string): string with the filename of the final merged file
+    &#39;&#39;&#39;
+    AllCDFfilenames = sorted( glob.glob( CDF_filenames ) )
+    MergedBuckets = init_ResultDataStructure()
+    for CDF_filename in AllCDFfilenames:
+        # read a file
+        ResultBuckets, BinSums, BinLens, VariableName, Units = LoadResultsCDF( CDF_filename )
+        # merge it 
+        for aKP in KPsequence:
+            for anALT in ALTsequence:
+                for aLat in LATsequence:
+                    for aMLT in MLTsequence:
+                        MergedBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)] += ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Sum&#34;)]
+                        MergedBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)] += ResultBuckets[(aKP, anALT, aLat, aMLT, &#34;Len&#34;)]
+        # delete file
+        os.remove( CDF_filename )
+    # save merged data
+    WriteResultsToCDF(MergedBuckets, mergedFilename, VariableName, Units)</code></pre>
+</details>
+</dd>
+<dt id="TIEGCM_Statistics.Data.setDataParams"><code class="name flex">
+<span>def <span class="ident">setDataParams</span></span>(<span>_MLT_min, _MLT_max, _MLT_duration_of_a_bucket, _LAT_min, _LAT_max, _LAT_degrees_of_a_bucket, _ALT_min, _ALT_max, _ALT_distance_of_a_bucket, _num_of_KP_bins, _TypeOfCalculation, _DistributionNumOfSlots)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes all Bin ranges, the variable which is going to be calculated, and the number of distribution slots.<br>
+The values passed as parameters are stored into global variables in order to be used by all processes at a later stage.<br>
+It also constructs the results filename automatically based on the parameters.<br>
+This function has to be called before any calculation of statistics starts.
+</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>_MLT_min</code></strong> :&ensp;<code>float</code></dt>
+<dd>The lower limit of the Region Of Interest regarding the Magnetic Local Time (hours).</dd>
+<dt><strong><code>_MLT_max</code></strong> :&ensp;<code>float</code></dt>
+<dd>The upper limit of the Region Of Interest regarding the Magnetic Local Time (hours).</dd>
+<dt><strong><code>_MLT_duration_of_a_bucket</code></strong> :&ensp;<code>float</code></dt>
+<dd>The Region Of Interest will be split into sub-bins of this size regarding the Magnetic Local Time (hours).</dd>
+<dt><strong><code>_LAT_min</code></strong> :&ensp;<code>float</code></dt>
+<dd>The lower limit of the Region Of Interest regarding the Geographic Latitude (degrees).</dd>
+<dt><strong><code>_LAT_max</code></strong> :&ensp;<code>float</code></dt>
+<dd>The upper limit of the Region Of Interest regarding the Geographic Latitude (degrees).</dd>
+<dt><strong><code>_LAT_degrees_of_a_bucket</code></strong> :&ensp;<code>float</code></dt>
+<dd>The Region Of Interest will be split into sub-bins of this size regarding the Geographic Latitude
+(degrees).</dd>
+<dt><strong><code>_ALT_min</code></strong> :&ensp;<code>float</code></dt>
+<dd>The lower limit of the Region Of Interest regarding the Altitude (km).</dd>
+<dt><strong><code>_ALT_max</code></strong> :&ensp;<code>float</code></dt>
+<dd>The upper limit of the Region Of Interest regarding the Altitude (km).</dd>
+<dt><strong><code>_ALT_distance_of_a_bucket</code></strong> :&ensp;<code>float</code></dt>
+<dd>The Region Of Interest will be split into sub-bins of this size regarding the Altitude (km).
+</dd>
+<dt><strong><code>_num_of_KP_bins</code></strong> :&ensp;<code>int</code></dt>
+<dd>The number of sub-bins into which the Region Of Interest will be split regarding the solar acticity Kp index. 1 for Kp bin 0-9, 2 for Kp bins 0-3, 3-9 and 3 for Kp bins 0-2, 2-4, 4-9.</dd>
+<dt><strong><code>_TypeOfCalculation</code></strong> :&ensp;<code>string</code></dt>
+<dd>Defines the physical variable on which the calculation will be applied. Valid values are: "Ohmic" for Joule Heating (Ohmic), "JHminusWindHeat" for Ohmic minus Neutral Wind heating, "SIGMA_PED" for Pedersen Conductivity, "SIGMA_HAL" for Hall Conductivity, "EEX_si" for Electric Field East, "EEY_si" for Electric Field North, "Convection_heating" for Convection heating, "Wind_heating" for Wind heating. The respective variables inside the TIE-GCM netCDF file must be named with identical names (except of JHminusWindHeat which is compound).</dd>
+<dt><strong><code>_DistributionNumOfSlots</code></strong> :&ensp;<code>int</code></dt>
+<dd>Each sub-bin will be separated into this number of slots in order for a histogram to be calculated.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setDataParams( _MLT_min, _MLT_max, _MLT_duration_of_a_bucket, _LAT_min, _LAT_max, _LAT_degrees_of_a_bucket, _ALT_min, _ALT_max, _ALT_distance_of_a_bucket, _num_of_KP_bins,_TypeOfCalculation, _DistributionNumOfSlots ):
+    &#39;&#39;&#39;
+    Initializes all Bin ranges, the variable which is going to be calculated, and the number of distribution slots.  
+    The values passed as parameters are stored into global variables in order to be used by all processes at a later stage.  
+    It also constructs the results filename automatically based on the parameters.  
+    This function has to be called before any calculation of statistics starts.  
+    Args:
+        _MLT_min (float): The lower limit of the Region Of Interest regarding the Magnetic Local Time (hours).
+        _MLT_max (float): The upper limit of the Region Of Interest regarding the Magnetic Local Time (hours).
+        _MLT_duration_of_a_bucket (float): The Region Of Interest will be split into sub-bins of this size regarding the Magnetic Local Time (hours).
+        _LAT_min (float): The lower limit of the Region Of Interest regarding the Geographic Latitude (degrees).
+        _LAT_max (float): The upper limit of the Region Of Interest regarding the Geographic Latitude (degrees).
+        _LAT_degrees_of_a_bucket (float): The Region Of Interest will be split into sub-bins of this size regarding the Geographic Latitude  (degrees).
+        _ALT_min (float): The lower limit of the Region Of Interest regarding the Altitude (km).
+        _ALT_max (float): The upper limit of the Region Of Interest regarding the Altitude (km).
+        _ALT_distance_of_a_bucket (float): The Region Of Interest will be split into sub-bins of this size regarding the Altitude (km).  
+        _num_of_KP_bins (int): The number of sub-bins into which the Region Of Interest will be split regarding the solar acticity Kp index. 1 for Kp bin 0-9, 2 for Kp bins 0-3, 3-9 and 3 for Kp bins 0-2, 2-4, 4-9.
+        _TypeOfCalculation (string): Defines the physical variable on which the calculation will be applied. Valid values are: &#34;Ohmic&#34; for Joule Heating (Ohmic), &#34;JHminusWindHeat&#34; for Ohmic minus Neutral Wind heating, &#34;SIGMA_PED&#34; for Pedersen Conductivity, &#34;SIGMA_HAL&#34; for Hall Conductivity, &#34;EEX_si&#34; for Electric Field East, &#34;EEY_si&#34; for Electric Field North, &#34;Convection_heating&#34; for Convection heating, &#34;Wind_heating&#34; for Wind heating. The respective variables inside the TIE-GCM netCDF file must be named with identical names (except of JHminusWindHeat which is compound).
+        _DistributionNumOfSlots (int): Each sub-bin will be separated into this number of slots in order for a histogram to be calculated. 
+    &#39;&#39;&#39;    
+    global MLT_min, MLT_max, MLT_duration_of_a_bucket, ALT_min, ALT_max, ALT_distance_of_a_bucket, LAT_min, LAT_max, LAT_degrees_of_a_bucket, num_of_KP_bins,  TypeOfCalculation, DistributionNumOfSlots, KPsequence, ALTsequence, LATsequence, MLTsequence, ResultFilename
+    ####
+    MLT_duration_of_a_bucket   = _MLT_duration_of_a_bucket
+    LAT_degrees_of_a_bucket    = _LAT_degrees_of_a_bucket
+    ALT_distance_of_a_bucket   = _ALT_distance_of_a_bucket
+    MLT_min = _MLT_min
+    MLT_max = _MLT_max
+    LAT_min = _LAT_min
+    LAT_max = _LAT_max
+    ALT_min = _ALT_min
+    ALT_max = _ALT_max
+    num_of_KP_bins = _num_of_KP_bins
+    MLTsequence    = list( np.arange( MLT_min,    MLT_max,    MLT_duration_of_a_bucket ) )
+    LATsequence    = list( np.arange( LAT_min, LAT_max, LAT_degrees_of_a_bucket) )
+    ALTsequence    = list( np.arange( ALT_min,    ALT_max,    ALT_distance_of_a_bucket  ) )
+    if num_of_KP_bins == 1:
+        KPsequence     = [ 0 ] 
+    elif num_of_KP_bins == 2:
+        KPsequence     = [ 0, 3 ] 
+    elif num_of_KP_bins == 3:    
+        KPsequence     = [ 0, 2, 4 ] 
+    #
+    TypeOfCalculation = _TypeOfCalculation
+    DistributionNumOfSlots = _DistributionNumOfSlots
+    # construct the results filename and check if exists so that you do not overwrite it
+    ResultFilename = &#34;results/&#34; + TypeOfCalculation + &#34;__&#34;
+    ResultFilename += &#34;MLT&#34; + &#34;_&#34; + str(MLT_min) + &#34;_&#34; + str(MLT_max) + &#34;_&#34; + str(MLT_duration_of_a_bucket) + &#34;_&#34;
+    ResultFilename += &#34;LAT&#34; + &#34;_&#34; + str(LAT_min) + &#34;_&#34; + str(LAT_max) + &#34;_&#34; + str(LAT_degrees_of_a_bucket) + &#34;_&#34;
+    ResultFilename += &#34;ALT&#34; + &#34;_&#34; + str(ALT_min) + &#34;_&#34; + str(ALT_max) + &#34;_&#34; + str(ALT_distance_of_a_bucket) + &#34;_&#34;
+    ResultFilename += &#34;Kp&#34; + str(num_of_KP_bins) + &#34;Bins&#34;
+    ResultFilename += &#34;.nc&#34;
+    ResultFilename = ResultFilename.replace(&#34;.0&#34;, &#34;&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="TIEGCM_Statistics" href="index.html">TIEGCM_Statistics</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="TIEGCM_Statistics.Data.ALT_distance_of_a_bucket" href="#TIEGCM_Statistics.Data.ALT_distance_of_a_bucket">ALT_distance_of_a_bucket</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.ALT_max" href="#TIEGCM_Statistics.Data.ALT_max">ALT_max</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.ALT_min" href="#TIEGCM_Statistics.Data.ALT_min">ALT_min</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.ALTsequence" href="#TIEGCM_Statistics.Data.ALTsequence">ALTsequence</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.DistributionNumOfSlots" href="#TIEGCM_Statistics.Data.DistributionNumOfSlots">DistributionNumOfSlots</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.KPsequence" href="#TIEGCM_Statistics.Data.KPsequence">KPsequence</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.LAT_degrees_of_a_bucket" href="#TIEGCM_Statistics.Data.LAT_degrees_of_a_bucket">LAT_degrees_of_a_bucket</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.LAT_max" href="#TIEGCM_Statistics.Data.LAT_max">LAT_max</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.LAT_min" href="#TIEGCM_Statistics.Data.LAT_min">LAT_min</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.LATsequence" href="#TIEGCM_Statistics.Data.LATsequence">LATsequence</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.MLT_duration_of_a_bucket" href="#TIEGCM_Statistics.Data.MLT_duration_of_a_bucket">MLT_duration_of_a_bucket</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.MLT_max" href="#TIEGCM_Statistics.Data.MLT_max">MLT_max</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.MLT_min" href="#TIEGCM_Statistics.Data.MLT_min">MLT_min</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.MLTsequence" href="#TIEGCM_Statistics.Data.MLTsequence">MLTsequence</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.Progress" href="#TIEGCM_Statistics.Data.Progress">Progress</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.ResultFilename" href="#TIEGCM_Statistics.Data.ResultFilename">ResultFilename</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.TypeOfCalculation" href="#TIEGCM_Statistics.Data.TypeOfCalculation">TypeOfCalculation</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.num_of_KP_bins" href="#TIEGCM_Statistics.Data.num_of_KP_bins">num_of_KP_bins</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="TIEGCM_Statistics.Data.LoadResultsCDF" href="#TIEGCM_Statistics.Data.LoadResultsCDF">LoadResultsCDF</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.LocatePositionInBuckets" href="#TIEGCM_Statistics.Data.LocatePositionInBuckets">LocatePositionInBuckets</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.WriteResultsToCDF" href="#TIEGCM_Statistics.Data.WriteResultsToCDF">WriteResultsToCDF</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.init_ResultDataStructure" href="#TIEGCM_Statistics.Data.init_ResultDataStructure">init_ResultDataStructure</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.mergeResultCDFs" href="#TIEGCM_Statistics.Data.mergeResultCDFs">mergeResultCDFs</a></code></li>
+<li><code><a title="TIEGCM_Statistics.Data.setDataParams" href="#TIEGCM_Statistics.Data.setDataParams">setDataParams</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
