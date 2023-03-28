@@ -2,7 +2,7 @@
 This repository contains the software which executed the statistical calculations for:  
   
 
-&emsp;<em>A comparative assessment of the distribution of Joule heating in altitude as estimated in TIE-GCM and EISCAT over one solar cycle.  </em>
+&emsp;<em>A comparative assessment of the distribution of Joule heating in altitude as estimated in TIE-GCM and EISCAT over one solar cycle.  </em>  
 &emsp;<em>Baloukidis D., Sarris T., Tourgaidis S., Pirnaris P., Aikio A., Virtanen I., Buchert S., Papadakis K.  </em>
   
   
