@@ -11,7 +11,7 @@ The contributors for this software are: Baloukidis Dimitris, Sarris Theodoros, T
 ## Introduction
 The software reads TIE-GCM result files, separates the data into bins and calculates percentiles for each bin. The bins are defined by ranges of Magnetic Local Time, solar activity Kp index, latitude and altitude. The results are stored into netCDF files and can be plotted as altitude profiles in order to be compared with similar plots based on data from the Tromsø EISCAT Incoherent Scatter Radar. 
 
-The software is written in Python and utilizes Jupyter Notebooks.
+The software is written in Python, uses Jupyter Notebooks and can be executed in Linux systems.
 
 ## Data
 The data for this project originate from two sources: a TIE-GCM 11 year simulation for the whole duration of the solar cycle 24 (2009-2019) and several campaigns of the Tromsø EISCAT Incoherent Scatter Radar during the same period. The TIEGCM_DATA folder contains sample data files from the TIE-GCM model and the EISCAT_DATA folder contains the altitude profiles as caluclated based on the radar data. The most important physical variables which concern this project are Joule heating with and without the contribution of neutral winds and Pedersen conductivity. 
