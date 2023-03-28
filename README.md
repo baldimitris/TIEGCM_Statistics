@@ -19,7 +19,6 @@ The data for this project originate from two sources: a TIE-GCM 11 year simulati
 We thank the EISCAT Scientific Association for providing the incoherent scatter radar data used in this study. EISCAT is an international association supported by research organisations in China (CRIRP), Finland (SA), Japan (NIPR and ISEE), Norway (NFR), Sweden (VR), and the United Kingdom (UKRI). The EISCAT data are available in the Madrigal database: \url{https://madrigal.eiscat.se/madrigal/}. This work was supported by the Kvantum Institute of the University of Oulu and by the Academy of Finland (347796 and 24304299). 
 
 ## Plot examples
-<img src="/images/TIEGCM_JH.png" alt="TIE-GCM Joule Heating Altitude Profiles" width=30%>
 ![TIE-GCM Joule Heating Altitude Profiles](/images/TIEGCM_JH.png "TIE-GCM Joule Heating Altitude Profiles").
 ![EISCAT Joule Heating Altitude Profiles](/images/EISCAT_JH.png "EISCAT Joule Heating Altitude Profiles").
 ![Pedersen Conductivity Medians Comparison](/images/PED_medians.png "Pedersen Conductivity Medians Comparison").
