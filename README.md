@@ -6,6 +6,7 @@ This repository contains the software which executed the statistical calculation
 &emsp;Baloukidis D., Sarris T., Tourgaidis S., Pirnaris P., Aikio A., Virtanen I., Buchert S., Papadakis K.
 </em>
 
+
 The study focuses on Joule heating and Pedersen conductivity at the Lower Thermosphere - Ionosphere region (100-150km altitude). The model and the radar are compared in different Magnetic Local Time settors and Kp level ranges.
 
 ## Contributors
