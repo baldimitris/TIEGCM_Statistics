@@ -1,9 +1,12 @@
 # TIEGCM_Statistics
 This repository contains the software which executed the statistical calculations for:  
+
 <em>
 &emsp;A comparative assessment of the distribution of Joule heating in altitude as estimated in TIE-GCM and EISCAT over one solar cycle.  
 &emsp;Baloukidis D., Sarris T., Tourgaidis S., Pirnaris P., Aikio A., Virtanen I., Buchert S., Papadakis K.
 </em>
+
+The study focuses on Joule heating and Pedersen conductivity at the Lower Thermosphere - Ionosphere region (100-150km altitude). The model and the radar are compared in different Magnetic Local Time settors and Kp level ranges.
 
 ## Contributors
 The contributors for this software are: Baloukidis Dimitris, Sarris Theodoros, Tourgaidis Stelios, Pirnaris Panagiotis, from the Democritus University of Thrace, Xanthi, Greece and Papadakis Konstantinos from the University of Helsinki, Helsinki, Finland.
